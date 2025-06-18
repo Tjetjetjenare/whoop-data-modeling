@@ -1,8 +1,8 @@
 import pandas as pd
 
-phys_cycles = pd.read_csv('data/physiological_cycles.csv')
-workouts = pd.read_csv('data/workouts.csv')
-sleep = pd.read_csv('data/sleeps.csv')
+phys_cycles = pd.read_csv('raw/physiological_cycles.csv')
+workouts = pd.read_csv('raw/workouts.csv')
+sleep = pd.read_csv('raw/sleeps.csv')
 
 # Convert date fields to datetime for the physiological cycles dataset and handle errors by coercing them to NaT (Not a Time).
 phys_cycles['Cycle start time'] = pd.to_datetime(phys_cycles['Cycle start time'], errors='coerce')
@@ -53,6 +53,6 @@ sleep = sleep.dropna()
 sleep = sleep.reset_index(drop=True)
 
 # Save the cleaned datasets to new CSV files
-phys_cycles.to_csv('data/cleaned_physiological_cycles.csv', index=False)
-workouts.to_csv('data/cleaned_workouts.csv', index=False)
-sleep.to_csv('data/cleaned_sleeps.csv', index=False)
+phys_cycles.to_csv('cleaned_data/cleaned_physiological_cycles.csv', index=False)
+workouts.to_csv('cleaned_data/cleaned_workouts.csv', index=False)
+sleep.to_csv('cleaned_data/cleaned_sleeps.csv', index=False)
